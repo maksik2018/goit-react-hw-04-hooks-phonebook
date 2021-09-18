@@ -4,16 +4,15 @@ import { List, Item} from "../components/ContactList.styled";
 
 const ContactList = ({ contacts, onDeleteContact }) => (
   <List>
-    {contacts.map(({ id, name, number }) => (
-      <Item key={id} >
-        <p>{name}</p>
-        <p>{number}</p>
-        <button type="button" onClick={() => onDeleteContact(id)}>Удалить</button>
+    {contacts.map((contact) => (
+      <Item key={contact.id} >
+        <p>{contact.name}</p>
+        <p>{contact.number}</p>
+        <button type="button" onClick={() => onDeleteContact(contact.id)}>Удалить</button>
       </Item>
     ))}
   </List>
 );
-
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
